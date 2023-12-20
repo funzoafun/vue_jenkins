@@ -41,7 +41,7 @@
     "test:run:sonar": "sonar-scanner",
     "serve:sorry-cypress": "docker-compose -f ./docker-compose.minio.yml up",
     "serve:sonar": "docker run --rm --name twc-sonarqube -p 9001:9000 sonarqube:lts",
-    "postinstall": "[[ $OSTYPE == 'darwin'* ]] && brew install sonar-scanner",
+    "postinstall": "node install-sonar-scanner.js",
     "nyc:instrument": "nyc instrument calc.js ./out",
     "nyc:report": "nyc report --reporter=lcov && open ./coverage/lcov-report/index.html",
     "run:chrome-recorder": "chrome-recorder ./cypress_testing_blog.json -o=tests/integration"
