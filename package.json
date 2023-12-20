@@ -1,0 +1,105 @@
+{
+  "name": "vue3-sorry-cypress-sonar-example",
+  "description": "An example working Demo Blog based on Vue3 and Cypress with Open Source SorryCypress dashboard integration, 100% code coverage, and Sonar setup. All in one, production ready setup.",
+  "keywords": [
+    "vite",
+    "vue3",
+    "vue",
+    "script setup",
+    "mirage",
+    "cypress",
+    "cypress dashboard",
+    "sorry cypress",
+    "docker",
+    "sonar",
+    "code coverage",
+    "tailwind",
+    "production"
+  ],
+  "homepage": "https://github.com/matrunchyk/vue3-sorry-cypress-sonar-example",
+  "bugs": {
+    "url": "https://github.com/matrunchyk/vue3-sorry-cypress-sonar-example/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matrunchyk/vue3-sorry-cypress-sonar-example.git"
+  },
+  "license": "MIT",
+  "author": "Serhii Matrunchyk",
+  "version": "0.0.1",
+  "scripts": {
+    "serve": "vite",
+    "build": "vite build",
+    "serve:test": "NODE_ENV=test vite --mode test",
+    "build:prod": "NODE_ENV=production vite build",
+    "build:test": "NODE_ENV=test vite build --mode test",
+    "preview": "vite preview",
+    "test:open": "cypress open",
+    "test:run:local": "cypress run",
+    "test:run:cypress-dashboard": "CYPRESS_PROJECT_ID=5ztemi cypress run --record --key 61e1680d-d3e5-47d8-b0cc-6b584c84b9a0",
+    "test:run:sorry-cypress": "CYPRESS_PROJECT_ID=testing-with-cypress CYPRESS_API_URL=\"http://localhost:1234/\" npx cy2 run --record --key testing-with-cypress --parallel --ci-build-id local-run-triple",
+    "test:run:sonar": "sonar-scanner",
+    "serve:sorry-cypress": "docker-compose -f ./docker-compose.minio.yml up",
+    "serve:sonar": "docker run --rm --name twc-sonarqube -p 9001:9000 sonarqube:lts",
+    "postinstall": "[[ $OSTYPE == 'darwin'* ]] && brew install sonar-scanner",
+    "nyc:instrument": "nyc instrument calc.js ./out",
+    "nyc:report": "nyc report --reporter=lcov && open ./coverage/lcov-report/index.html",
+    "run:chrome-recorder": "chrome-recorder ./cypress_testing_blog.json -o=tests/integration"
+  },
+  "dependencies": {
+    "date-fns": "^2.28.0",
+    "lodash.clonedeep": "^4.5.0",
+    "uuid": "^8.3.2",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.15"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@cypress/chrome-recorder": "^1.4.0",
+    "@cypress/code-coverage": "^3.9.12",
+    "@cypress/vite-dev-server": "^2.2.3",
+    "@cypress/vue": "^3.1.2",
+    "@ngneat/falso": "^5.2.1",
+    "@types/eslint-scope": "^3.7.3",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/compiler-sfc": "^3.2.33",
+    "@vue/eslint-config-airbnb": "^6.0.0",
+    "@vue/eslint-config-typescript": "^10.0.0",
+    "autoprefixer": "^10.4.7",
+    "babel-plugin-istanbul": "^6.1.1",
+    "babel-plugin-transform-import-meta": "^2.1.1",
+    "browserify-istanbul": "^3.0.1",
+    "cy2": "^2.0.0",
+    "cypress": "^9.7.0",
+    "eslint": "^8.15.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-vue": "^8.7.1",
+    "miragejs": "^0.1.44",
+    "nyc": "^15.1.0",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.0.24",
+    "through2": "^4.0.2",
+    "typescript": "^4.6.4",
+    "vite": "^2.9.9",
+    "vite-plugin-eslint": "^1.6.0",
+    "vite-plugin-istanbul": "^2.7.3"
+  },
+  "nyc": {
+    "report-dir": "coverage",
+    "reporter": [
+      "lcov",
+      "text",
+      "json"
+    ]
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "engineStrict": true
+}
