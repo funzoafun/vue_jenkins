@@ -35,7 +35,7 @@
     "build:test": "NODE_ENV=test vite build --mode test",
     "preview": "vite preview",
     "test:open": "cypress open",
-    "test:run:local": "cypress run",
+    "test:run:local": "cypress run --headless",
     "test:run:sonar": "sonar-scanner",
     "serve:sorry-cypress": "docker-compose -f ./docker-compose.minio.yml up",
     "nyc:instrument": "nyc instrument calc.js ./out",
