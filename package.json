@@ -36,12 +36,8 @@
     "preview": "vite preview",
     "test:open": "cypress open",
     "test:run:local": "cypress run",
-    "test:run:cypress-dashboard": "CYPRESS_PROJECT_ID=5ztemi cypress run --record --key 61e1680d-d3e5-47d8-b0cc-6b584c84b9a0",
-    "test:run:sorry-cypress": "CYPRESS_PROJECT_ID=testing-with-cypress CYPRESS_API_URL=\"http://localhost:1234/\" npx cy2 run --record --key testing-with-cypress --parallel --ci-build-id local-run-triple",
     "test:run:sonar": "sonar-scanner",
     "serve:sorry-cypress": "docker-compose -f ./docker-compose.minio.yml up",
-    "serve:sonar": "docker run --rm --name twc-sonarqube -p 9001:9000 sonarqube:lts",
-    "postinstall": "node install-sonar-scanner.js",
     "nyc:instrument": "nyc instrument calc.js ./out",
     "nyc:report": "nyc report --reporter=lcov && open ./coverage/lcov-report/index.html",
     "run:chrome-recorder": "chrome-recorder ./cypress_testing_blog.json -o=tests/integration"
